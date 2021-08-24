@@ -43,6 +43,6 @@ namespace TravelCalculator.Domain.Enums
         November = 11,
         [Description("Декабрь")]
         [Display(Name = "Декабрь")]
-        December = 12
+        December = 12 
     }
 }

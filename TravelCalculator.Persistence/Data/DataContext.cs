@@ -11,6 +11,13 @@ namespace TravelCalculator.Persistence.Data
 {
     public class DataContext:DbContext
     {
+        public DataContext()
+        {
+
+        }
+        public DataContext(DbContextOptions options) : base(options)
+        {
+        }
         public DbSet<Country> Countries { get; set; }
         public DbSet<Region> Regions { get; set; }
         //public DbSet<Month> Months { get; set; }
