@@ -24,6 +24,7 @@ namespace TravelCalculator.Persistence.Data
         //public DbSet<CountryMonth> CountryMonths { get; set; }
         public DbSet<Resort> Resorts { get; set; }
         public DbSet<Season> Seasons { get; set; }
+        public DbSet<Continent> Continents { get; set; }
         
         public DataContext(DbContextOptions<DataContext> options)
             :base(options)

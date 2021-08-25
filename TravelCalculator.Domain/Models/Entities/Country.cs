@@ -14,6 +14,7 @@ namespace TravelCalculator.Domain
         public int CountryId { get; set; }
         public string CountryName { get; set; }
         public bool IsPopularCountry { get; set; }
+        public int ContinentId { get; set; }
     //    public int MonthId { get; set; }
     //    public virtual DataMonth Month { get; set; }
         public virtual ICollection<Region> Regions { get; set; }
