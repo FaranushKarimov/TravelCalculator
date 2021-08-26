@@ -5,12 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using TravelCalculator.Domain.Enums;
 using TravelCalculator.Domain.Models.Entities;
 
-namespace TravelCalculator.Domain
+namespace TravelCalculator.Domain.Models.Entities
 {
     public class Country
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CountryId { get; set; }
         public string CountryName { get; set; }
         public bool IsPopularCountry { get; set; }
