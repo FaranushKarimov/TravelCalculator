@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using TravelCalculator.Domain.Enums;
 
 namespace TravelCalculator.Service.Countries.Model
 {
