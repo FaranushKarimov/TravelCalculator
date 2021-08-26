@@ -13,6 +13,6 @@ namespace TravelCalculator.Service.Countries.Model
         public int Id { get; set; }
         public string CountryName { get; set; }
         public bool IsPopularCountry { get; set; }
-        public string Months { get; set; }
+        public List<MonthResponce> Months { get; set; }
     }
 }
