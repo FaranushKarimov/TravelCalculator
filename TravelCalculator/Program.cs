@@ -11,6 +11,7 @@ using System.Linq;
 using TravelCalculator.Domain.Enums;
 using System.Collections.Generic;
 using TravelCalculator.Domain.Models.Entities;
+using System.Threading.Tasks;
 
 namespace TravelCalculator
 {
@@ -22,8 +23,12 @@ namespace TravelCalculator
         private static ConnectionStrings _connectionString = new ConnectionStrings();
         private static IOSettings _ioSettings = new IOSettings();
         private static DataContext _dataContext; 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+            _dataContext = new DataContext();
+            _dataContext.Database.EnsureCreated();
+            //_dataContext.Database.SetConnectionString("User ID=postgres; Password=mspz3jic; Host=localhost; Port=5432; Database=Season; Integrated Security=true; Pooling=true;");
+            _dataContext.Database.OpenConnection();
             BootstrapServices();
             Console.WriteLine("Begin");
             var csvContent = ReadCSV();
@@ -43,8 +48,20 @@ namespace TravelCalculator
                     if (i == 1)
                     {
                         var countryName = csv[headers[i]][j];
-                        int countryId =  _countryService.GetCountryIdByName(countryName);//repos.GetCountryIdByName(countryName);
-                        seasons[j].Country.CountryName = countryName;
+
+                        var coutry = await _dataContext.Countries.FirstOrDefaultAsync(x => x.CountryName == countryName);
+                        if(coutry == null)
+                        {
+                            coutry = new Country
+                            {
+                                CountryName = countryName
+                            };
+                            await _dataContext.Countries.AddAsync(coutry);
+                            await _dataContext.SaveChangesAsync();
+                        }
+
+                        int countryId = coutry.CountryId;//await _countryService.GetCountryIdByName(countryName);//repos.GetCountryIdByName(countryName);
+                        //seasons[j].Country.CountryName = countryName;
                         seasons[j].CountryId = countryId;
                     }
 
@@ -61,17 +78,21 @@ namespace TravelCalculator
             _dataContext.Seasons.AddRange(seasons);
             _dataContext.SaveChanges();
 
+            Console.WriteLine("Succesfuly writed to DB");
+
             //await _seasonRepos.AddRangeAsync(seasons)
             //{
             //    await _context.Seasons.AddRangeAsync(seasons);
             //    await _context.SaveChangesAsync();
             //};
 
-            foreach (var season in seasons)
-            {
-                Console.WriteLine(season.ToString());
-            }
+            //foreach (var season in seasons)
+            //{
+            //    Console.WriteLine(season.ToString());
+            //}
 
+            _dataContext.Database.CloseConnection();
+                
             Console.ReadKey();
         }
 

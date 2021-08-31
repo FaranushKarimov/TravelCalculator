@@ -20,12 +20,12 @@ namespace TravelCalculator.Service.Countries
             _countryRepository = countryRepository;
         }
 
-        public async Task<List<Responce>> GetCountriesFromContinet(int continentId)
-        {
-            return await _countryRepository.Entities.Include(x => x.Seasons).Where(x => x.ContinentId == continentId).Select(x => new Responce
-            { Id = x.CountryId, CountryName = x.CountryName, IsPopularCountry = x.IsPopularCountry,Months = x.Seasons.Select(x => 
-            new MonthResponce {Month = x.Month.ToString(),SeasonType = x.seasonType.ToString() }).ToList()}).ToListAsync();
-        }
+        //public async Task<List<Responce>> GetCountriesFromContinet(int continentId)
+        //{
+        //    return await _countryRepository.Entities.Include(x => x.Seasons).Where(x => x.ContinentId == continentId).Select(x => new Responce
+        //    { Id = x.CountryId, CountryName = x.CountryName, IsPopularCountry = x.IsPopularCountry,Months = x.Seasons.Select(x => 
+        //    new MonthResponce {Month = x.Month.ToString(),SeasonType = x.seasonType.ToString() }).ToList()}).ToListAsync();
+        //}
 
         public async Task<int> GetCountryIdByName(string countryName)
         {

@@ -22,10 +22,10 @@ namespace TravelCalculator
         public static void AddConfigurationOptions(this IServiceCollection services)
         {
             services.AddOptions();
-            services.Configure<ConnectionStrings>(_configuration.GetSection("ConnectionStrings"));
-            services.Configure<IOSettings>(_configuration.GetSection("IOSettings"));
-            var connectionString = _configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<DataContext>(options => options.UseNpgsql(connectionString));
+            //services.Configure<ConnectionStrings>(_configuration.GetSection("ConnectionStrings"));
+            //services.Configure<IOSettings>(_configuration.GetSection("IOSettings"));
+            //var connectionString = _configuration.GetConnectionString("DefaultConnection");
+            //services.AddDbContext<DataContext>(options => options.UseNpgsql(connectionString));
         }
         public static void AddService(this IServiceCollection services)
         {

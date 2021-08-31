@@ -9,7 +9,7 @@ namespace TravelCalculator.Service.Countries
 {
     public interface ICountryService
     {
-        Task<List<Responce>> GetCountriesFromContinet(int continentId);
+        //Task<List<Responce>> GetCountriesFromContinet(int continentId);
         Task<int> GetCountryIdByName(string countryName);
     }
 }
