@@ -10,15 +10,15 @@ namespace TravelCalculator.Domain.Enums
     {
         [Description("Неподходящий сезон")]
         [Display(Name = "Неподходящий сезон")]
-        NoSeason = 0,
+        NoSeason,
         [Description("Пляжный сезон")]
         [Display(Name = "Пляжный сезон")]
-        BeachSeason = 1,
+        BeachSeason,
         [Description("Экскурсионный сезон")]
         [Display(Name = "Экскурсионный сезон")]
-        ExcersionSeason = 2,
+        ExcersionSeason,
         [Description("Горнолыжный сезон")]
         [Display(Name = "Горнолыжный сезон")]
-        SkiSeason = 3
+        SkiSeason
     }
 }

@@ -12,5 +12,12 @@ namespace TravelCalculator.Domain.Models.Entities
         public int CountryId { get; set; }
         public SeasonType seasonType { get; set; }
         public virtual Country Country { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Month}:{seasonType}:{Country}";
+        }
     }
+
+   
 }

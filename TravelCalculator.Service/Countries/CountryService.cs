@@ -26,5 +26,19 @@ namespace TravelCalculator.Service.Countries
             { Id = x.CountryId, CountryName = x.CountryName, IsPopularCountry = x.IsPopularCountry,Months = x.Seasons.Select(x => 
             new MonthResponce {Month = x.Month.ToString(),SeasonType = x.seasonType.ToString() }).ToList()}).ToListAsync();
         }
+
+        public async Task<int> GetCountryIdByName(string countryName)
+        {
+            var country = await _countryRepository.Entities.FirstOrDefaultAsync(x => x.CountryName == countryName);
+            if (country == null)
+            {
+                country = new Country
+                {
+                    CountryName = countryName
+                };
+                await _countryRepository.Create(country);
+            }
+            return country.CountryId;
+        }
     }
 }

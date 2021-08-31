@@ -10,39 +10,39 @@ namespace TravelCalculator.Domain.Enums
     {
         [Description("Январь")]
         [Display(Name = "Январь")]
-        January = 1,
+        January,
         [Description("Февраль")]
         [Display(Name = "Февраль")]
-        February = 2,
+        February,
         [Description("Март")]
         [Display(Name = "Март")]
-        March = 3,
+        March,
         [Description("Апрель")]
         [Display(Name = "Апрель")]
-        April = 4,
+        April,
         [Description("Май")]
         [Display(Name = "Май")]
-        May = 5,
+        May,
         [Description("Июнь")]
         [Display(Name = "Июнь")]
-        June = 6,
+        June,
         [Description("Июль")]
         [Display(Name = "Июль")]
-        Jule = 7,
+        Jule,
         [Description("Август")]
         [Display(Name = "Август")]
-        August = 8,
+        August,
         [Description("Сентябрь")]
         [Display(Name = "Сентябрь")]
-        September = 9,
+        September,
         [Description("Октябрь")]
         [Display(Name = "Октябрь")]
-        October = 10,
+        October,
         [Description("Ноябрь")]
         [Display(Name = "Ноябрь")]
-        November = 11,
+        November,
         [Description("Декабрь")]
         [Display(Name = "Декабрь")]
-        December = 12 
+        December 
     }
 }
