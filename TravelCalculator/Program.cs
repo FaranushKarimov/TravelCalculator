@@ -29,7 +29,7 @@ namespace TravelCalculator
             _dataContext.Database.EnsureCreated();
             //_dataContext.Database.SetConnectionString("User ID=postgres; Password=mspz3jic; Host=localhost; Port=5432; Database=Season; Integrated Security=true; Pooling=true;");
             _dataContext.Database.OpenConnection();
-            BootstrapServices();
+            BootstrapServices(); 
             Console.WriteLine("Begin");
             var csvContent = ReadCSV();
             string[] headers = csvContent[0].Split(";");
